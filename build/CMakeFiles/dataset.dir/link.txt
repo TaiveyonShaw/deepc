@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/dataset.dir/home/taiveyonshaw/dev/deepc/src/dataset.c.o -o dataset 

@@ -1,0 +1,3 @@
+/home/taiveyonshaw/dev/deepc/build/CMakeFiles/main.dir
+/home/taiveyonshaw/dev/deepc/build/CMakeFiles/edit_cache.dir
+/home/taiveyonshaw/dev/deepc/build/CMakeFiles/rebuild_cache.dir
