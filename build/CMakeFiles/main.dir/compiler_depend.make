@@ -59,10 +59,10 @@ CMakeFiles/main.dir/home/taiveyonshaw/dev/deepc/src/main.c.o: /home/taiveyonshaw
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  /home/taiveyonshaw/dev/deepc/src/ubyte_reader.c
+  /home/taiveyonshaw/dev/deepc/src/ubyte-reader.c
 
 
-/home/taiveyonshaw/dev/deepc/src/ubyte_reader.c:
+/home/taiveyonshaw/dev/deepc/src/ubyte-reader.c:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 

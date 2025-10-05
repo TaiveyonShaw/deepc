@@ -4,24 +4,24 @@
 
 typedef struct {
     uint8_t *data;
-    uint32_t num_images;
-    uint32_t rows;
-    uint32_t cols;
+    uint16_t num_images;
+    uint16_t rows;
+    uint16_t cols;
 } ImageData;
 
 typedef struct {
     uint8_t *labels;
-    uint32_t num_labels;
+    uint16_t num_labels;
 } LabelData;
 
-// Read 32-bit big-endian integer (manual conversion)
-uint32_t read_uint32(FILE *fp) {
+// Read 16-bit big-endian integer
+uint16_t read_uint16(FILE *fp) {
     uint8_t bytes[4];
     fread(bytes, sizeof(uint8_t), 4, fp);
-    return ((uint32_t)bytes[0] << 24) |
-           ((uint32_t)bytes[1] << 16) |
-           ((uint32_t)bytes[2] << 8)  |
-           ((uint32_t)bytes[3]);
+    return ((uint16_t)bytes[0] << 24) |
+           ((uint16_t)bytes[1] << 16) |
+           ((uint16_t)bytes[2] << 8)  |
+           ((uint16_t)bytes[3]);
 }
 
 // Read ubyte image file
@@ -39,10 +39,10 @@ ImageData* read_ubyte_images(char *filename) {
     }
 
     // Read header
-    uint32_t magic = read_uint32(fp);
-    img_data->num_images = read_uint32(fp);
-    img_data->rows = read_uint32(fp);
-    img_data->cols = read_uint32(fp);
+    uint16_t magic = read_uint16(fp);
+    img_data->num_images = read_uint16(fp);
+    img_data->rows = read_uint16(fp);
+    img_data->cols = read_uint16(fp);
 
     // Allocate memory for image data
     size_t data_size = img_data->num_images * img_data->rows * img_data->cols;
@@ -82,8 +82,8 @@ LabelData* read_ubyte_labels(char *filename) {
     }
 
     // Read header
-    uint32_t magic = read_uint32(fp);
-    label_data->num_labels = read_uint32(fp);
+    uint16_t magic = read_uint16(fp);
+    label_data->num_labels = read_uint16(fp);
 
     // Allocate memory for label data
     label_data->labels = (uint8_t*)malloc(label_data->num_labels * sizeof(uint8_t));

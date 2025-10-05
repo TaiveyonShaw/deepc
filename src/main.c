@@ -7,14 +7,14 @@ int main() {
     // Load training images
     ImageData *train_images = read_ubyte_images("../dataset/train-images.idx3-ubyte");
     if (!train_images) {
-        return 1;
+        return -1;
     }
 
     // Load training labels
     LabelData *train_labels = read_ubyte_labels("../dataset/train-labels.idx1-ubyte");
     if (!train_labels) {
         free_image_data(train_images);
-        return 1;
+        return -2;
     }
 
     printf("Number of images: %u\n", train_images->num_images);
@@ -25,12 +25,12 @@ int main() {
     // Access specific label: train_labels->labels[label_idx]
 
     // Example: Print first label
-    for (int i = 1; i < (train_images->rows * train_images->cols) + 1; i++) {
-        if (i % 28) {
-            printf("%u ", train_images->data[i-1]);
+    for (uint16_t i = 0; i < (train_images->rows * train_images->cols) + 0; i++) {
+        if ((i + 1) % 28) {
+            printf("%u ", train_images->data[i]);
         }
         else {
-            printf("%u\n", train_images->data[i-1]);
+            printf("%u\n", train_images->data[i]);
         }
     }
 
